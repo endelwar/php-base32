@@ -241,7 +241,7 @@ class Base32 {
      */
     private static function _intStrToByteStr($intStr) {
         // Check if given value is a positive integer (string).
-        if (!preg_match('/[0-9]+/', (string) $intStr)) {
+        if (!preg_match('/^[0-9]+$/', (string) $intStr)) {
             $msg = 'Argument 1 must be a non-negative integer or a string representing a non-negative integer.';
             throw new InvalidArgumentException($msg, self::E_NO_NON_NEGATIVE_INT);
         }
@@ -611,7 +611,7 @@ class Base32 {
      */
     private static function _crockfordEncodeIntStr($intStr, $alphabet) {
         // Check if given value is a non-negative integer(-string).
-        if (!preg_match('/[0-9]+/', (string) $intStr)) {
+        if (!preg_match('/^[0-9]+$/', (string) $intStr)) {
             $msg = 'Argument 1 must be a non-negative integer or a string representing a non-negative integer.';
             throw new InvalidArgumentException($msg, self::E_NO_NON_NEGATIVE_INT);
         }
